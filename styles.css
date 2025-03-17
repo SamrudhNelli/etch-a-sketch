@@ -5,8 +5,8 @@ div
     /* justify-content: center; */
     align-items: center;
     color :aqua;
-    background-color: burlywood;
     flex-direction: column;
+    background-color: burlywood;
 }
 
 #header
@@ -23,4 +23,9 @@ body
 {
     margin :0px;
     padding: 0px;
+}
+
+.grid div{
+    background-color: white;
+    opacity: 1.0;
 }
