@@ -1,0 +1,26 @@
+div
+{
+    display : flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    color :aqua;
+    background-color: burlywood;
+    flex-direction: column;
+}
+
+#header
+{
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;    
+}
+
+body
+{
+    margin :0px;
+    padding: 0px;
+}
