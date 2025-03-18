@@ -3,9 +3,7 @@ function func(e)
     let t = e.style.opacity;
     if(t != 1)
     {
-        console.log(t);
         e.style.opacity = String(parseFloat(t) + 0.1);
-        console.log(e.style.opacity);
     }
     else if(e.style.backgroundColor == 'white')
     {
@@ -14,17 +12,31 @@ function func(e)
     }
 }
 
+function res(x)
+{
+    if(x.button == 0)
+    {
+        let temp = grid.children;
+        for(let i = 0; i < rows; i++)
+        {
+            let temp1 = temp[i].children;
+            for(let j = 0; j < rows; j++)
+            {
+                temp1[j].style.backgroundColor = 'white';
+                temp1[j].style.opacity = '1.0';
+            }
+        }
+    }
+}
+
 const body_container = document.querySelector('.body_container');
-body_container.style.width = screen.availWidth + 'px';
-body_container.style.height = (screen.availHeight - 25) + 'px';
+body_container.style.width = (screen.availWidth - 15) + 'px';
+body_container.style.height = (screen.availHeight - 75) + 'px';
 body_container.style.margin = '0px';
 body_container.style.padding = '0px';
 
-let container = document.querySelector('.container');
 
-const grid = document.createElement('div');
-grid.classList.add('grid');
-container.appendChild(grid);
+const grid = document.querySelector('.grid');
 
 let rows = 16;
 
@@ -50,3 +62,9 @@ for(let i = 0; i < rows; i++)
     }
     grid.append(grids[i]);
 }
+
+
+const option = document.querySelector('.option');
+
+const reset = document.querySelector('.button');
+reset.addEventListener('mouseup', res);
