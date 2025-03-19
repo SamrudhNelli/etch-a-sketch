@@ -59,6 +59,7 @@ for(let i = 0; i < rows; i++)
         grids[i].append(grids[i][j]);
         grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
         grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
+        grids[i][j].addEventListener('touchmove', function() { func(grids[i][j]); });
     }
     grid.append(grids[i]);
 }
