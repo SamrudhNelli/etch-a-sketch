@@ -42,7 +42,6 @@ body
 {
     margin :0px;
     padding: 0px;
-    overflow-y: scroll;
 }
 
 .grid div{
@@ -71,17 +70,4 @@ body
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
-
-  @media (min-width: 600px) {
-    body {
-      flex-wrap: nowrap;
-    }
-
-    div {
-      flex-basis: 33%;
-    }
-    .column {
-        width: 50%;
-      }
   }

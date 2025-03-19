@@ -38,7 +38,7 @@ body_container.style.padding = '0px';
 
 const grid = document.querySelector('.grid');
 
-let rows = 5;
+let rows = 16;
 
 let grids = Array.from({ length: rows }, () => Array(rows));
 
@@ -59,7 +59,6 @@ for(let i = 0; i < rows; i++)
         grids[i].append(grids[i][j]);
         grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
         grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
-        grids[i][j].addEventListener('touchmove', function() { func(grids[i][j]); });
     }
     grid.append(grids[i]);
 }
