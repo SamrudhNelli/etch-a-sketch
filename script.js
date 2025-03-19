@@ -30,15 +30,15 @@ function res(x)
 }
 
 const body_container = document.querySelector('.body_container');
-body_container.style.width = (screen.availWidth - 15) + 'px';
-body_container.style.height = (screen.availHeight - 75) + 'px';
+body_container.style.width = screen.availWidth + 'px';
+body_container.style.height = screen.availHeight + 'px';
 body_container.style.margin = '0px';
 body_container.style.padding = '0px';
 
 
 const grid = document.querySelector('.grid');
 
-let rows = 16;
+let rows = 5;
 
 let grids = Array.from({ length: rows }, () => Array(rows));
 
