@@ -1,14 +1,27 @@
+let choice = 0;
+
 function func(e)
 {
-    let t = e.style.opacity;
-    if(t != 1)
+    if(choice == 0)
     {
-        e.style.opacity = String(parseFloat(t) + 0.1);
-    }
-    else if(e.style.backgroundColor == 'white')
-    {
+        let t = e.style.opacity;
         e.style.backgroundColor = 'black';
-        e.style.opacity = '0.1';
+        if(t != 1)
+        {
+            e.style.opacity = String(parseFloat(t) + 0.1);
+        }
+        else
+        {
+            e.style.opacity = '0.1';
+        }
+    }
+    else if(choice == 1)
+    {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        e.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        e.style.opacity = '1.0';
     }
 }
 
@@ -68,3 +81,15 @@ const option = document.querySelector('.option');
 
 const reset = document.querySelector('.button');
 reset.addEventListener('mouseup', res);
+
+const rainbow = document.querySelector('.rainbow');
+rainbow.innerText = 'Rainbow';
+rainbow.addEventListener('mouseup', function() {
+    choice = 1; });
+option.append(rainbow);
+
+const black = document.querySelector('.black');
+black.innerText = 'Black';
+black.addEventListener('mouseup', function() {
+    choice = 0; });
+option.append(black);
