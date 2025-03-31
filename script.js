@@ -5,13 +5,13 @@ function func(e)
     if(choice == 0)
     {
         let t = e.style.opacity;
-        e.style.backgroundColor = 'black';
         if(t != 1)
         {
             e.style.opacity = String(parseFloat(t) + 0.1);
         }
-        else
+        else if(e.style.backgroundColor != 'black')
         {
+            e.style.backgroundColor = 'black';
             e.style.opacity = '0.1';
         }
     }
@@ -89,7 +89,7 @@ rainbow.addEventListener('mouseup', function() {
 option.append(rainbow);
 
 const black = document.querySelector('.black');
-black.innerText = 'Black';
+black.innerText = 'Greyscale';
 black.addEventListener('mouseup', function() {
     choice = 0; });
 option.append(black);
