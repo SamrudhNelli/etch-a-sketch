@@ -70,6 +70,7 @@ for(let i = 0; i < rows; i++)
         grids[i].append(grids[i][j]);
         grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
         grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
+        grids[i][j].addEventListener('touchstart', function() { func(grids[i][j]); });
         if(viewPortHeight > viewPortWidth)
         {
             console.log('viewPortHeight > viewPortWidth');
@@ -93,16 +94,21 @@ const option = document.querySelector('.option');
 
 const reset = document.querySelector('.button');
 reset.addEventListener('mouseup', res);
+reset.addEventListener('touchstart', res);
 
 const rainbow = document.querySelector('.rainbow');
 rainbow.innerText = 'Rainbow';
 rainbow.addEventListener('mouseup', function() {
+    choice = 1; });
+rainbow.addEventListener('touchstart', function() {
     choice = 1; });
 option.append(rainbow);
 
 const black = document.querySelector('.black');
 black.innerText = 'Greyscale';
 black.addEventListener('mouseup', function() {
+    choice = 0; });
+black.addEventListener('touchstart', function() {
     choice = 0; });
 option.append(black);
 
