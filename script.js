@@ -42,6 +42,8 @@ function res(x)
     }
 }
 
+const viewPortWidth = window.innerWidth;
+const viewPortHeight = window.innerHeight;
 const body_container = document.querySelector('.body_container');
 body_container.style.margin = '0px';
 body_container.style.padding = '0px';
@@ -60,16 +62,28 @@ for(let i = 0; i < rows; i++)
     for(let j = 0; j < rows; j++)
     {
         grids[i][j] = document.createElement('div');
-        grids[i][j].style.width = '40px';
         grids[i][j].style.border = '1px solid black';
         grids[i][j].style.margin = '0px';
-        grids[i][j].style.height = '40px';
         grids[i][j].style.backgroundColor = 'white';
         grids[i][j].style.opacity = '1.0';
         grids[i][j].style.flexDirection = 'column';
         grids[i].append(grids[i][j]);
         grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
         grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
+        if(viewPortHeight > viewPortWidth)
+        {
+            console.log('viewPortHeight > viewPortWidth');
+            console.log(viewPortHeight, viewPortWidth);
+            grids[i][j].style.height = (0.7/rows)*viewPortWidth + 'px';
+            grids[i][j].style.width = (0.7/rows)*viewPortWidth + 'px';
+        }
+        else
+        {
+            console.log('viewPortWidth > viewPortHeight');
+            console.log(viewPortHeight, viewPortWidth);
+            grids[i][j].style.height = (0.7/rows)*viewPortHeight + 'px';
+            grids[i][j].style.width = (0.7/rows)*viewPortHeight + 'px';
+        }
     }
     grid.append(grids[i]);
 }
@@ -91,3 +105,33 @@ black.innerText = 'Greyscale';
 black.addEventListener('mouseup', function() {
     choice = 0; });
 option.append(black);
+
+const buttons = document.querySelectorAll('.button');
+const header = document.querySelector('#header');
+
+if(viewPortHeight > viewPortWidth)
+{
+    grid.style.margin = 0.03 * viewPortWidth + "px";
+    // option.style.width = 0.20 * viewPortWidth + "px";
+    // option.style.height = 0.50 * viewPortWidth + "px";
+    option.style.flexDirection = 'row';
+    option.style.justifyContent = 'center';
+    header.style.fontSize = 0.06 * viewPortWidth + "px";
+    option.style.alignItems = 'center';
+    buttons.forEach(button => {
+        button.style.height = 0.1 * viewPortWidth + "px";
+        button.style.fontSize = 0.035 * viewPortWidth + "px";
+        button.style.margin = 0.03 * viewPortWidth + "px";
+        button.style.width = 0.30 * viewPortWidth + "px";
+        button.style.alignItems = 'center';
+        button.style.justifyContent = 'center';
+        button.style.display = 'flex';
+        button.style.padding = '0px';
+        button.style.boxShadow = "0px 0.8vw #999999";
+    });
+}
+else
+{
+    grid.style.margin = 0.06 * viewPortHeight + "px";
+    header.style.paddingLeft = 0.3 * viewPortHeight + "px";
+}
