@@ -74,19 +74,14 @@ function print_grid()
             if(colour_on_hover)
                 grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
             grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
-            grids[i][j].addEventListener("touchmove", function() { func(grids[i][j]); });
             grids[i][j].addEventListener("touchstart", function() { func(grids[i][j]); });
             if(viewPortHeight > viewPortWidth)
             {
-                console.log('viewPortHeight > viewPortWidth');
-                console.log(viewPortHeight, viewPortWidth);
                 grids[i][j].style.height = (0.7/rows)*viewPortWidth + 'px';
                 grids[i][j].style.width = (0.7/rows)*viewPortWidth + 'px';
             }
             else
             {
-                console.log('viewPortWidth > viewPortHeight');
-                console.log(viewPortHeight, viewPortWidth);
                 grids[i][j].style.height = (0.7/rows)*viewPortHeight + 'px';
                 grids[i][j].style.width = (0.7/rows)*viewPortHeight + 'px';
             }
