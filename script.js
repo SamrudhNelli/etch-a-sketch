@@ -174,6 +174,5 @@ else
     });
     disableHoverColouring.className = 'button';
     disableHoverColouring.style.fontSize = 0.0225 * viewPortHeight + "px";
-    disableHoverColouring.style.fontA
     option.append(disableHoverColouring);
 }
