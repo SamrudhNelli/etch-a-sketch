@@ -74,7 +74,6 @@ function print_grid()
             if(colour_on_hover)
                 grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
             grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
-            grids[i][j].addEventListener("touchstart", function() { func(grids[i][j]); });
             if(viewPortHeight > viewPortWidth)
             {
                 grids[i][j].style.height = (0.7/rows)*viewPortWidth + 'px';
