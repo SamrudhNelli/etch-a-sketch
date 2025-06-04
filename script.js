@@ -98,7 +98,6 @@ reset.addEventListener('mouseup', res);
 reset.addEventListener('touchstart', res);
 
 const rainbow = document.querySelector('.rainbow');
-rainbow.innerText = 'Rainbow';
 rainbow.addEventListener('mouseup', function() {
     choice = 1; });
 rainbow.addEventListener('touchstart', function() {
@@ -106,7 +105,6 @@ rainbow.addEventListener('touchstart', function() {
 option.append(rainbow);
 
 const black = document.querySelector('.black');
-black.innerText = 'Greyscale';
 black.addEventListener('mouseup', function() {
     choice = 0; });
 black.addEventListener('touchstart', function() {
@@ -123,9 +121,12 @@ rowsInput.addEventListener('mouseup', function() {
         alert("Please enter a valid number between 1 and 64.");
         newRows = parseInt(prompt("Enter the number of rows (between 1 and 64):"));
     }
-    rows = newRows;
-    grid.innerHTML = '';
-    print_grid();
+    if(newRows >= 1 && newRows <= 64)
+    {
+        rows = newRows;
+        grid.innerHTML = '';
+        print_grid();
+    }
 });
 
 if(viewPortHeight > viewPortWidth)

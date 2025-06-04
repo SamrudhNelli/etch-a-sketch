@@ -28,7 +28,7 @@ body
 {
     margin :0px;
     padding: 0px;
-    background-color: burlywood;
+    background-image: linear-gradient(to right, #155799, #159957);
     height : 100vh;
 }
 
