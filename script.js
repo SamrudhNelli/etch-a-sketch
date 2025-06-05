@@ -94,6 +94,7 @@ function print_grid()
         }
         grid.append(grids[i]);
     }
+    onhover();
 }
 
 print_grid();
@@ -103,13 +104,17 @@ function myfunc(evt)
     func(evt.currentTarget);
 }
 
-for (const child of grid.children) 
+function onhover()
 {
-    console.log(child.tagName);
-    for(const child1 of child.children)
+    for (const child of grid.children) 
     {
-        console.log(child1.tagName);
-        child1.addEventListener('mouseover', myfunc , false);
+        for(const child1 of child.children)
+        {
+            if(colour_on_hover)
+                child1.addEventListener('mouseover', myfunc , false);
+            else
+                child1.removeEventListener('mouseover', myfunc , false);
+        }
     }
 }
 
@@ -190,16 +195,7 @@ else
         {
             disableHoverColouring.innerText = 'Enable Colour on Hover';
         }
-        for (const child of grid.children) 
-        {
-            for(const child1 of child.children)
-            {
-                if(!colour_on_hover)
-                    child1.removeEventListener('mouseover', myfunc, false);
-                else
-                    child1.addEventListener('mouseover', myfunc, false);
-            }
-        }
+        onhover();
     });
     disableHoverColouring.className = 'button';
     disableHoverColouring.style.fontSize = 0.0225 * viewPortHeight + "px";
