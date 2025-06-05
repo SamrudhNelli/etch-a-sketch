@@ -125,22 +125,52 @@ reset.addEventListener('mouseup', res);
 reset.addEventListener('touchstart', res);
 
 const rainbow = document.querySelector('.rainbow');
-rainbow.addEventListener('mouseup', function() {
-    choice = 1; });
-rainbow.addEventListener('touchstart', function() {
-    choice = 1; });
-
-const black = document.querySelector('.black');
-black.addEventListener('mouseup', function() {
-    choice = 0; });
-black.addEventListener('touchstart', function() {
-    choice = 0; });
-
 const eraser = document.querySelector('.white');
+const black = document.querySelector('.black');
+
+function coulourbutton()
+{
+    if(choice == 0)
+    {
+        black.style.backgroundColor = "#3e8e41";
+        rainbow.style.backgroundColor = "#04AA6D";
+        eraser.style.backgroundColor = "#04AA6D";
+    }
+    else if(choice == 1)
+    {
+        rainbow.style.backgroundColor = "#3e8e41";
+        black.style.backgroundColor = "#04AA6D";
+        eraser.style.backgroundColor = "#04AA6D";
+    }
+    else if(choice == 2)
+    {
+        eraser.style.backgroundColor = "#3e8e41";
+        rainbow.style.backgroundColor = "#04AA6D";
+        black.style.backgroundColor = "#04AA6D";
+    }
+}
+
+rainbow.addEventListener('mouseup', function() {
+    choice = 1; 
+    coulourbutton()});
+rainbow.addEventListener('touchstart', function() {
+    choice = 1; 
+    coulourbutton()});
+
+black.addEventListener('mouseup', function() {
+    choice = 0; 
+    coulourbutton()});
+black.addEventListener('touchstart', function() {
+    choice = 0; 
+    coulourbutton()});
+black.style.backgroundColor = "#3e8e41";
+
 eraser.addEventListener('mouseup', function() {
-    choice = 2; });
+    choice = 2; 
+    coulourbutton()});
 eraser.addEventListener('touchstart', function() {
-    choice = 2; });
+    choice = 2; 
+    coulourbutton()});
 
 const buttons = document.querySelectorAll('.button');
 const header = document.querySelector('#header');
