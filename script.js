@@ -23,6 +23,15 @@ function func(e)
         e.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
         e.style.opacity = '1.0';
     }
+    else if(choice == 2)
+    {
+        e.style.backgroundColor = 'white';
+        e.style.opacity = '1.0';
+    }
+    else
+    {
+        console.error("Invalid choice");
+    }
 }
 
 function res(x)
@@ -109,7 +118,12 @@ black.addEventListener('mouseup', function() {
     choice = 0; });
 black.addEventListener('touchstart', function() {
     choice = 0; });
-option.append(black);
+
+const eraser = document.querySelector('.white');
+eraser.addEventListener('mouseup', function() {
+    choice = 2; });
+eraser.addEventListener('touchstart', function() {
+    choice = 2; });
 
 const buttons = document.querySelectorAll('.button');
 const header = document.querySelector('#header');
