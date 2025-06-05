@@ -59,7 +59,7 @@ body_container.style.padding = '0px';
 colour_on_hover = true;
 
 
-const grid = document.querySelector('.grid');
+let grid = document.querySelector('.grid');
 
 let rows = 16;
 
@@ -80,8 +80,6 @@ function print_grid()
             grids[i][j].style.opacity = '1.0';
             grids[i][j].style.flexDirection = 'column';
             grids[i].append(grids[i][j]);
-            if(colour_on_hover)
-                grids[i][j].addEventListener('mouseover', function() { func(grids[i][j]); });
             grids[i][j].addEventListener('mouseup', function() { func(grids[i][j]); });
             if(viewPortHeight > viewPortWidth)
             {
@@ -100,6 +98,21 @@ function print_grid()
 
 print_grid();
 
+function myfunc(evt)
+{
+    func(evt.currentTarget);
+}
+
+for (const child of grid.children) 
+{
+    console.log(child.tagName);
+    for(const child1 of child.children)
+    {
+        console.log(child1.tagName);
+        child1.addEventListener('mouseover', myfunc , false);
+    }
+}
+
 const option = document.querySelector('.option');
 
 const reset = document.querySelector('.button');
@@ -111,7 +124,6 @@ rainbow.addEventListener('mouseup', function() {
     choice = 1; });
 rainbow.addEventListener('touchstart', function() {
     choice = 1; });
-option.append(rainbow);
 
 const black = document.querySelector('.black');
 black.addEventListener('mouseup', function() {
@@ -178,8 +190,16 @@ else
         {
             disableHoverColouring.innerText = 'Enable Colour on Hover';
         }
-        grid.innerHTML = '';
-        print_grid();
+        for (const child of grid.children) 
+        {
+            for(const child1 of child.children)
+            {
+                if(!colour_on_hover)
+                    child1.removeEventListener('mouseover', myfunc, false);
+                else
+                    child1.addEventListener('mouseover', myfunc, false);
+            }
+        }
     });
     disableHoverColouring.className = 'button';
     disableHoverColouring.style.fontSize = 0.0225 * viewPortHeight + "px";
